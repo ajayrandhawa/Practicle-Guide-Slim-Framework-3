@@ -229,3 +229,20 @@ $app->group('/posts',function(){
 });
 
 ```
+### 10. Database Connection
+
+```
+$container = $app->getContainer();
+
+$container['db'] = function(){
+    return new PDO('mysql:host=localhost;dbname=ajax;','root','');
+};
+
+//FETCH ALL RECORDS
+
+$app->get('/',function($request, $response){
+    $users = $this->db->query('select * from users')->fetchAll(PDO::FETCH_OBJ);
+    var_dump($users);
+});
+
+```
