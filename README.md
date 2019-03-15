@@ -51,3 +51,25 @@ $app->get('/posts',function(){
 $app->run();
 ?>
 ```
+### 3. Container
+
+Slim uses a dependency container to prepare, manage, and inject application dependencies.
+
+```
+<?php
+require('vendor/autoload.php');
+
+$app = new \Slim\App;
+$container = $app->getContainer();
+
+$container['myapp'] = function(){
+    return 'Hello World! from the Container';
+};
+
+$app->get('/',function(){
+    echo $this->myapp;
+});
+
+$app->run();
+?>
+```
