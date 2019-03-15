@@ -73,3 +73,31 @@ $app->get('/',function(){
 $app->run();
 ?>
 ```
+### 4. Working with View or Templates
+
+```
+<?php
+require('vendor/autoload.php');
+
+$app = new \Slim\App;
+$container = $app->getContainer();
+
+$container['view'] = function ($container) {
+    $view = new \Slim\Views\Twig(__DIR__ .'/resourses/views', [
+        'cache' => 'false'
+    ]);
+
+    $router = $container->get('router');
+    $uri = \Slim\Http\Uri::createFromEnvironment(new \Slim\Http\Environment($_SERVER));
+    $view->addExtension(new Slim\Views\TwigExtension($router, $uri));
+
+    return $view;
+};
+
+$app->get('/',function($request, $response){
+    return $this->view->render($response, 'home.twig');
+});
+
+$app->run();
+?>
+```
