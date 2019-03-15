@@ -1,0 +1,31 @@
+{% extends 'layouts/app.twig' %} {% block title %}Contact Us{% endblock %} {%
+block content %}
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <div class="card mt-4">
+      <div class="card-header">
+        Contact
+      </div>
+      <div class="card-body">
+        <form action="{{path_for('contact')}}" method="post">
+          <div class="from-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" />
+          </div>
+          <div class="from-group">
+            <label for="Email">Email</label>
+            <input type="Email" name="email" id="email" class="form-control" />
+          </div>
+          <div class="from-group">
+            <label for="Message">Message</label>
+            <textarea type="text" name="message" id="message" class="form-control" rows="10"></textarea>
+          </div>
+          <div class="from-group mt-2">
+                <input type="submit" value="submit" class="btn btn-primary btn-block">
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
