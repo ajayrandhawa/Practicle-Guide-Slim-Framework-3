@@ -156,3 +156,27 @@ resources/views/layouts/app.twig
 </body>
 </html>
 ```
+
+### 6. Passing Data
+
+Index.php
+```
+$app->get('/posts',function($request, $response){
+    return $this->view->render($response, 'posts.twig',[
+        'Mypost' => 'This is awosome post'
+    ]);
+});
+```
+
+show data to twig template
+
+resources/views/posts.twig
+```
+{% extends 'layouts/app.twig' %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+    <h2>{{ Mypost }}</h2>
+{% endblock %}
+```
