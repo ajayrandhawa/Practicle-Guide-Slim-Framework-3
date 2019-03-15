@@ -212,3 +212,20 @@ $app->get('/posts/{id}',function($request, $response,$args){
     ]);
 });
 ```
+
+### 9. Grouping Routing
+
+```
+$app->group('/posts',function(){
+    $this->get('',function(){
+        echo "All Posts";
+    });
+    $this->get('/{id}',function($request, $response, $args){
+        echo "Get Post " . $args['id'];
+    });
+    $this->post('',function(){
+        echo "Create Posts";
+    });
+});
+
+```
