@@ -241,8 +241,13 @@ $container['db'] = function(){
 //FETCH ALL RECORDS
 
 $app->get('/',function($request, $response){
+
     $users = $this->db->query('select * from users')->fetchAll(PDO::FETCH_OBJ);
-    var_dump($users);
+    
+    return $this->view->render($response, 'home.twig',[
+        'users' => $users
+    ]);
 });
+
 
 ```
