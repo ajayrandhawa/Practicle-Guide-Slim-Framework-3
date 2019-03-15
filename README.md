@@ -180,3 +180,19 @@ resources/views/posts.twig
     <h2>{{ Mypost }}</h2>
 {% endblock %}
 ```
+### 7. Moving between Pages
+
+Index.php
+```
+$app->get('/posts',function($request, $response){
+    return $this->view->render($response, 'posts.twig',[
+        'Mypost' => 'This is awosome post'
+    ]);
+})->setName('posts.show');
+```
+
+on Twig Template
+
+```
+<a href="{{ path_for('posts.show')}}"> Go To Home</a>
+```
