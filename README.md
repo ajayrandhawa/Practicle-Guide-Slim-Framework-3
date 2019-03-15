@@ -196,3 +196,19 @@ on Twig Template
 ```
 <a href="{{ path_for('posts.show')}}"> Go To Home</a>
 ```
+
+### 8. Handling Params with Url
+
+```
+$app->get('/posts/{id}',function($request, $response,$args){
+
+    $user = [
+        'id' => $args['id'],
+        'username' => 'Ajay'
+    ];
+    
+    return $this->view->render($response, 'contact_confirmed.twig', [
+        'user' => $user
+    ]);
+});
+```
