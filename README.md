@@ -2,7 +2,7 @@
 
 Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs.
 
-### Practical guide Slim3 framework. In these tutorials, we cover up all basic of a slim framework like Routing, Controller, Middleware, API etc. we also Cover Basic form handling, page navigation, database connectivity, and complete CURD operation.
+Practical guide Slim3 framework. In these tutorials, we cover up all basic of a slim framework like Routing, Controller, Middleware, API etc. we also Cover Basic form handling, page navigation, database connectivity, and complete CURD operation.
 
 ### 1. First Hello World! App
 
