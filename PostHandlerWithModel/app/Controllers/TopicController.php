@@ -23,4 +23,14 @@ class TopicController extends BaseController{
         $post = $post->fetch(PDO::FETCH_OBJ);
         return $this->container->view->render($response, 'show.twig', compact('post'));
     }
+
+    // Redirect Example
+
+    public function addTopic($request, $response){
+        return $response->withRedirect($this->container->router->pathFor('topic.show',['id' => 2]));
+    }
+
+    public function showTopic($request, $response, $args){
+        return "Show Topic" .$args['id'];
+    }
 }
