@@ -251,5 +251,10 @@ $app->get('/',function($request, $response){
     ]);
 });
 
+```
 
+### 11. Return JSON
+
+```
+return $response->withJson('YOUR DATA',200);
 ```
