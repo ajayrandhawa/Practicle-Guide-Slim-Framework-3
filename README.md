@@ -258,3 +258,20 @@ $app->get('/',function($request, $response){
 ```
 return $response->withJson('YOUR DATA',200);
 ```
+
+### 12. Middleware
+
+```
+$autenticated =  function($request, $response, $next) use ($container){
+
+    if(true){
+        $response = $response->withRedirect('http://localhost:86/slim/public/posts');
+    }
+    return $next($request,$response);
+};
+
+//use
+
+$app->get('/users', UserController::class.':index')->add($autenticated);
+
+```
